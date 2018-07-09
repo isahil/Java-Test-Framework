@@ -5,6 +5,8 @@ import org.testng.Reporter;
 
 public class TestVerify extends Assert {
 	
+	//verify a method is executed and get the error message on method failure. the specific error message can also be found in the test reports under test-output folder
+	
 	public static void Equal(Exception e2, String message)
 	{
 		try {
@@ -13,7 +15,6 @@ public class TestVerify extends Assert {
 		catch (Error e) {
 			Reporter.log("Error: " + e.getLocalizedMessage());
 		}		
-		
 	}
 	
 	public static void Equal(boolean object)
@@ -23,8 +24,6 @@ public class TestVerify extends Assert {
 		}
 		catch (Error e) {
 			Reporter.log("Error: " + e.getLocalizedMessage());
-		}		
-		
+		}			
 	}
-
 }

@@ -3,13 +3,11 @@ package testSuite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterClass;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+import sysHelpers.Utility;
 
 public class BaseTest {
 	
@@ -19,7 +17,7 @@ public class BaseTest {
 	@BeforeMethod()
 	public void setUp(String browser, String environment, String qaurl, String liveurl) throws Exception {
 
-		// set up the webdriver to kick off the tests. can add additional browsers here
+		// set up the webdriver to kick off the tests. add additional webdrivers here
 		if (browser.equals("edge")) {
 			Driver = new EdgeDriver();
 		}
@@ -41,15 +39,14 @@ public class BaseTest {
 	}
 	
 	@AfterMethod
-	public void testQuit()
+	public void tearDown(ITestResult result)
 	{
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			Utility.screenShot(Driver, result.getName());
+		}
+		
 		Driver.close();
 		Driver.quit();
 	}
-
-//	@AfterClass()
-//	public void tearDown() throws Exception {
-//		Driver.close();
-//		Driver.quit();
-//	}
 }

@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class SharedActions {	
+public class SharedActions {
+	//actions that are commonly executed across the application should be added in this class
 
     public static void click(WebDriver driver, WebElement element)
     {

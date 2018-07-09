@@ -1,7 +1,6 @@
 package sysHelpers;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Random;
@@ -46,13 +45,12 @@ public class Utility {
 	}
 
 	
-	//call this method to switch frame for pop up window/notification
+	//call this method to switch frame to a pop up window/notification
 	public static void switchFrame(WebDriver driver, String title) {
 		driver.switchTo().frame(title);
 	}
 	
-	
-	//this method will take a screenshot on test failure if its called in a test case
+	//The below method will save the screen shot in screenshot folder with test method name. screenShot method is executed during the AfterMethod execution in BaseTest
 	public static void screenShot(WebDriver driver, String screenshotName) {
 		try {
 			TakesScreenshot ts = (TakesScreenshot) driver;

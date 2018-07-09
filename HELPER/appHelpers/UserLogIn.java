@@ -21,6 +21,7 @@ public class UserLogIn {
     	   	
     }
 
+    //user credentials are retrieved from the file name passed below
 	public static void logIn(WebDriver driver, String State)
 	{
 		ExcelDataConfiguration creds = new ExcelDataConfiguration("LogInData.xlsx");	

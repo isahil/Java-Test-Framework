@@ -1,6 +1,7 @@
 package sysHelpers;
 
 public class DataNames {
+	// create a data name in a pageObject and DataNames class and call it in a test case to retrieve the same data
 
     public static String FIRST_NAME = "FIRST NAME";
     public static String MIDDLE_NAME = "MIDDLE NAME";

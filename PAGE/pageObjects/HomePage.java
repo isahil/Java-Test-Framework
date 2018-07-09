@@ -9,7 +9,6 @@ public class HomePage {
 
     WebDriver driver;
 
-
     @FindBy(className = "last-element")
     private WebElement MyStudentButton;
 
@@ -29,7 +28,5 @@ public class HomePage {
     public boolean isInitialized() {
 
         return StudentsTab.isDisplayed();
-
     }
-
 }

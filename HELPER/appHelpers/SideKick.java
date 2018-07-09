@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SideKick {
+	//elements in the application's navigation bar 
 
 
     public static void goToStudentsPage(WebDriver driver)

@@ -15,6 +15,8 @@ public class ExcelDataConfiguration {
 	Workbook wb;
 	Sheet sheet1;
 
+	//define the directory path for the testData folder in the parameter. 
+	//the project directory is set up in the C folder since it'll be a common links on our machines.
 	public ExcelDataConfiguration(String fileName) {
 		try {
 			File src = new File("C://EspedAutomation//DATA//testData//" + fileName);
