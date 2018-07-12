@@ -19,7 +19,7 @@ public class ExcelDataConfiguration {
 	//the project directory is set up in the C folder since it'll be a common links on our machines.
 	public ExcelDataConfiguration(String fileName) {
 		try {
-			File src = new File("C://EspedAutomation//DATA//testData//" + fileName);
+			File src = new File("C://eSped-UI-Automation//DATA//testData//" + fileName);
 			FileInputStream fis = new FileInputStream(src);
 			wb = new XSSFWorkbook(fis);
 		}
