@@ -11,12 +11,14 @@
  <parameter name="browser"  value="chrome"/>         
  <parameter name="environment"  value="qa"/>  		
  <parameter name="qaurl"  value="https://idgatewayawsstage.flqa.net/login?signin=cf40c75cb38305f21a5fe9f2a9649105&amp;productId=v5Stage&amp;clientId=v5Stage#/login"/>
- <parameter name="liveurl"  value="https://www.iepdirect.com"/> 		
+ <parameter name="liveurl"  value="https://www.iepdirect.com"/> 
+ <!--parameter name="nodeurl" value="http://10.17.4.97:2680/wd/hub"/-->
+  <parameter name="nodeurl" value=""/>	
  		
   <test  name="SmokeTests">  
     <classes>
       <class name="testSuite.NewStudentTest"/>
-      <!--class name="testSuite.LogInTest"/-->
+      <class name="testSuite.LogInTest"/>
       
     </classes>
     

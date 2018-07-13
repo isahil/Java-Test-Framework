@@ -16,7 +16,7 @@ public class ExcelDataConfiguration {
 	Sheet sheet1;
 
 	//define the directory path for the testData folder in the parameter. 
-	//the project directory is set up in the C folder since it'll be a common links on our machines.
+	//the project directory is set up in the C folder since the links is identical on our machines.
 	public ExcelDataConfiguration(String fileName) {
 		try {
 			File src = new File("C://eSped-UI-Automation//DATA//testData//" + fileName);
