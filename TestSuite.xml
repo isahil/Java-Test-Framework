@@ -6,14 +6,20 @@
 <listeners>
 	<listener class-name="sysHelpers.TestTransformer"/>
 	<listener class-name="sysHelpers.TestListener" />	
- </listeners>
+</listeners>
 
- <parameter name="browser"  value="chrome"/>         
- <parameter name="environment"  value="qa"/>  		
- <parameter name="qaurl"  value="https://idgatewayawsstage.flqa.net/login?signin=cf40c75cb38305f21a5fe9f2a9649105&amp;productId=v5Stage&amp;clientId=v5Stage#/login"/>
- <parameter name="liveurl"  value="https://www.iepdirect.com"/> 
- <!--parameter name="nodeurl" value="http://10.17.4.97:2680/wd/hub"/-->
-  <parameter name="nodeurl" value=""/>	
+    <!--Test Configuration/-->
+    <parameter name="platform" value="WINDOWS"/>
+    <parameter name="browser"  value="chrome"/>
+    <parameter name="environment"  value="qa"/>
+    <parameter name="qaUrl"  value="https://idgatewayawsstage.flqa.net/login?signin=cf40c75cb38305f21a5fe9f2a9649105&amp;productId=v5Stage&amp;clientId=v5Stage#/login"/>
+    <parameter name="liveUrl"  value="https://www.iepdirect.com"/>
+
+    <!-- GRID INFO/-->
+    <parameter name="gridHub" value="true"/>
+    <parameter name="gridUrl" value="@ondemand.saucelabs.com:443/wd/hub"/>
+    <parameter name="gridUser" value="isahil"/>
+    <parameter name="gridKey" value="dcd8af30-f4e6-412d-86da-f92150233116"/>
  		
   <test  name="SmokeTests">  
     <classes>
@@ -21,6 +27,5 @@
       <class name="testSuite.LogInTest"/>
       
     </classes>
-    
   </test> <!-- SmokeTests -->
 </suite> <!-- SmokeSuite -->

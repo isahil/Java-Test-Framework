@@ -19,41 +19,57 @@ public class BaseTest {
 	
 	WebDriver Driver;
 
-	@Parameters({ "browser", "environment", "qaurl", "liveurl"})
+	@Parameters({"platform", "browser",
+			"environment", "qaUrl", "liveUrl",
+			"gridHub", "gridUrl", "gridUser", "gridKey"})
+
 	@BeforeMethod()
-	public void setUp(String browser, String environment, String qaurl, String liveurl) throws Exception {
+	public void setUp(String platform, String browser,
+					  String environment, String qaUrl, String liveUrl,
+					  String gridHub, String gridUser, String gridKey, String gridUrl) throws Exception {
 
-		// set up the webdriver to kick off the tests. add additional webdrivers here
-		  String USERNAME = "isahil";
-		  String AUTOMATE_KEY = "dcd8af30-f4e6-412d-86da-f92150233116";
-		  String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@ondemand.saucelabs.com:443/wd/hub";
-		  
-//		  options.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
-//		  options.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
-//		  options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-		  
-		if (browser.equals("edge")) {
-			//Driver = new EdgeDriver();
-			EdgeOptions eo = new EdgeOptions();
-			eo.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
-			Driver = new  RemoteWebDriver(new URL(URL), eo);
+		//configure the webdrivers to kick off the tests.
+
+		if(gridHub.equals("true"))
+		{
+			String url = "https://" + gridUser + ":" + gridKey + gridUrl;
+
+			if (browser.equals("edge"))
+			{
+				EdgeOptions eo = new EdgeOptions();
+				eo.setCapability(CapabilityType.PLATFORM_NAME, Platform.valueOf(platform));
+				Driver = new RemoteWebDriver(new URL(url), eo);
+			}
+			else if (browser.equals("chrome"))
+			{
+				ChromeOptions co = new ChromeOptions();
+				co.setCapability(CapabilityType.PLATFORM_NAME, Platform.valueOf(platform));
+				Driver = new RemoteWebDriver(new URL(url), co);
+			}
 		}
-
-		else if (browser.equals("chrome")) {
-			//Driver = new ChromeDriver();
-			ChromeOptions co = new ChromeOptions();
-			Driver = new RemoteWebDriver(new URL(URL), co);
+		else if(gridHub.equals("false"))
+		{
+			if(browser.equals("edge"))
+			{
+				Driver = new EdgeDriver();
+			}
+			if(browser.equals("chrome"))
+			{
+				Driver = new ChromeDriver();
+			}
 		}
 
 		Driver.manage().window().maximize();
 
 		// add more parameters for environment links in the loop if necessary.
-		if (environment.equals("qa")) {
-			Driver.get(qaurl);
+		if (environment.equals("qa"))
+		{
+			Driver.get(qaUrl);
 		}
 
-		else if (environment.equals("live")) {
-			Driver.get(liveurl);
+		else if (environment.equals("live"))
+		{
+			Driver.get(liveUrl);
 		}
 	}
 	
