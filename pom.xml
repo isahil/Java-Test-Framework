@@ -11,15 +11,6 @@
 
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>1.1</version>
@@ -32,17 +23,11 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>
-                                    HELPER
-                                </source>
+                                <source>HELPER</source>
 
-                                <source>
-                                    DATA
-                                </source>
+                                <source>DATA</source>
 
-                                <source>
-                                    PAGE
-                                </source>
+                                <source>PAGE</source>
                             </sources>
                         </configuration>
                     </execution>
