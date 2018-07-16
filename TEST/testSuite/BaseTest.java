@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
@@ -19,13 +20,11 @@ public class BaseTest {
 	
 	WebDriver Driver;
 
-	@Parameters({"platform", "browser",
-			"environment", "qaUrl", "liveUrl",
+	@Parameters({"platform", "browser","environment", "qaUrl", "liveUrl",
 			"gridHub", "gridUrl", "gridUser", "gridKey"})
 
 	@BeforeMethod()
-	public void setUp(String platform, String browser,
-					  String environment, String qaUrl, String liveUrl,
+	public void setUp(String platform, String browser, String environment, String qaUrl, String liveUrl,
 					  String gridHub, String gridUser, String gridKey, String gridUrl) throws Exception {
 
 		//configure the webdrivers to kick off the tests.
@@ -38,6 +37,7 @@ public class BaseTest {
 			{
 				EdgeOptions eo = new EdgeOptions();
 				eo.setCapability(CapabilityType.PLATFORM_NAME, Platform.valueOf(platform));
+				eo.setCapability(CapabilityType.BROWSER_VERSION, BrowserType.EDGE);
 				Driver = new RemoteWebDriver(new URL(url), eo);
 			}
 			else if (browser.equals("chrome"))

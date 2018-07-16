@@ -3,6 +3,11 @@ eSped-UI-Automation\.iml
 
 \.idea/
 
+\.settings/
+
 target/
 
-Screenshot/
+screenshot/
+
+test-output/
+
