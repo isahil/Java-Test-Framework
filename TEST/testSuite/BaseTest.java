@@ -20,31 +20,34 @@ public class BaseTest {
 	
 	WebDriver Driver;
 
-	@Parameters({"platform", "browser","environment", "qaUrl", "liveUrl",
-			"gridHub", "gridUrl", "gridUser", "gridKey"})
+	@Parameters({"platform", "gridHub", "browser",
+			     "environment", "qaUrl", "liveUrl"})
 
 	@BeforeMethod()
-	public void setUp(String platform, String browser, String environment, String qaUrl, String liveUrl,
-					  String gridHub, String gridUser, String gridKey, String gridUrl) throws Exception {
+	public void setUp(String platform, String gridHub, String browser,
+                      String environment, String qaUrl, String liveUrl) throws Exception {
+
+	    //grid information
+	    String gridUser = "isahil";
+	    String accessKey = "96dea45d-2fe4-4bbe-b74d-e0c433bc2d6b";
+	    String gridUrl = "@ondemand.saucelabs.com:443/wd/hub";
 
 		//configure the webdrivers to kick off the tests.
-
 		if(gridHub.equals("true"))
 		{
-			String url = "https://" + gridUser + ":" + gridKey + gridUrl;
+			String url = "https://" + gridUser + ":" + accessKey + gridUrl;
 
 			if (browser.equals("edge"))
 			{
 				EdgeOptions eo = new EdgeOptions();
-				eo.setCapability(CapabilityType.PLATFORM_NAME, Platform.valueOf(platform));
-				eo.setCapability(CapabilityType.BROWSER_VERSION, BrowserType.EDGE);
-				Driver = new RemoteWebDriver(new URL(url), eo);
+                eo.setCapability(CapabilityType.PLATFORM_NAME, Platform.valueOf(platform));
+                Driver = new RemoteWebDriver(new URL(url), eo);
 			}
 			else if (browser.equals("chrome"))
 			{
 				ChromeOptions co = new ChromeOptions();
-				co.setCapability(CapabilityType.PLATFORM_NAME, Platform.valueOf(platform));
-				Driver = new RemoteWebDriver(new URL(url), co);
+                co.setCapability(CapabilityType.PLATFORM_NAME, Platform.valueOf(platform));
+                Driver = new RemoteWebDriver(new URL(url), co);
 			}
 		}
 		else if(gridHub.equals("false"))
