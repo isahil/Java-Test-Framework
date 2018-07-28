@@ -1,9 +1,7 @@
-eSped-UI-Automation
-This framework was built for applications under eSped application suite. It can be used for any version of the applications.
+This framework was built for Java educational applications. 
 
 Getting Started
-Project repository name: eSped-UI-Automation, can be found on https://github.com/FrontlineEducation/eSped-UI-Automation
-Clone/download the repository to the directory in the following path C:\ located on your machine. Name the folder eSped-UI-Automation
+Clone/download the repository to the directory in the following path C:\ located on your machine.
 
 Prerequisites
 Eclipse/ IntelliJ
