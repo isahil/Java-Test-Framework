@@ -15,11 +15,11 @@ Git Client (i.e GitKraken)
   Tests need to be run using xml files since the BaseTest has parameter value dependencies that are declared in the xml file.
 
 
-Built With
-Selenium - WebDriver 
-TestNG - testing framework 
-Apache POI - Java libraries for reading and writing files in Microsoft Office formats
-Maven - Dependency Management
+Built With:
+Selenium WebDriver, 
+TestNG testing framework, 
+Apache POI for reading and writing files in Microsoft Office formats,
+Maven Dependency Management.
 
 Author
 Imran Sahil
