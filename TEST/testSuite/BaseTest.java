@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +18,7 @@ import org.testng.annotations.Parameters;
 import sysHelpers.Utility;
 
 public class BaseTest {
-	
+
 	WebDriver Driver;
 
 	@Parameters({"platform", "gridHub", "browser",
@@ -52,27 +53,24 @@ public class BaseTest {
 		}
 		else if(gridHub.equals("false"))
 		{
-			if(browser.equals("edge"))
-			{
-				Driver = new EdgeDriver();
-			}
-			if(browser.equals("chrome"))
-			{
-				Driver = new ChromeDriver();
-			}
+			String Browser = browser;
+			switch(Browser)
+            {
+				case "chrome": Driver = new ChromeDriver();
+				case "edge" : Driver = new EdgeDriver();
+                case "safari" : Driver = new SafariDriver();
+            }
 		}
 
 		Driver.manage().window().maximize();
 
-		// add more parameters for environment links in the loop if necessary.
-		if (environment.equals("qa"))
-		{
-			Driver.get(qaUrl);
-		}
+		// add more cases for environment links if necessary.
 
-		else if (environment.equals("live"))
+		String Environment = environment;
+		switch (Environment)
 		{
-			Driver.get(liveUrl);
+			case "qa" : Driver.get(qaUrl);
+			case "live" : Driver.get(liveUrl);
 		}
 	}
 	
